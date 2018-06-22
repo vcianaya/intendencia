@@ -5,8 +5,85 @@
 </ion-header>
 
 <ion-content padding>
-  <canvas 
-    #myCanvas (touchstart)="startDrawing($event)" 
-    (touchmove)="handleMove($event)">
-  </canvas>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <ion-item>
+          <ion-label stacked>
+            <ion-icon name="clipboard"></ion-icon>
+              NRO. DE FORMULARIO
+          </ion-label>
+          <ion-input type="number" class="nro_decomiso"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-label stacked>
+            <ion-icon name="clipboard"></ion-icon>
+            NRO. DE DECOMISO
+          </ion-label>
+          <ion-input type="number" class="nro_decomiso"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-label stacked>
+            <ion-icon name="clipboard"></ion-icon>
+            NRO. DE ACTA
+          </ion-label>
+          <ion-input type="number" class="nro_decomiso"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-label class="titulo">Formulario de decomiso</ion-label>
+        <ion-card class="block">
+          <ion-icon name="trash" class="deleteicon" push-11
+           [class.hide]="!imgFormulario.estado" (click)="deleteFormulario()"></ion-icon>
+          <img [src]="imgFormulario.url" (click)="takeFormulario()" class="img">
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-label class="titulo">Imagen de la actividad economica</ion-label>
+        <ion-card class="block">
+          <ion-icon name="trash" class="deleteicon" [class.hide]="!imgActivdad.estado" (click)="deleteActividad()" push-11></ion-icon>
+          <img [src]="imgActivdad.url" (click)="takeActividad()" class="img">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-label class="titulo">Imagen Decomiso</ion-label>
+        <ion-card class="block">
+          <ion-icon name="trash" class="deleteicon" [class.hide]="!imgDecomiso.estado" (click)="deleteDecomiso()" push-11></ion-icon>
+          <img [src]="imgDecomiso.url" (click)="takeDecomiso()" class="img">
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-label class="titulo">Imagen Decomiso</ion-label>
+        <ion-card class=block>
+          <ion-icon name="trash" class="deleteicon" [class.hide]="!imgDecomiso2.estado" (click)="deleteDecomiso2()" push-11></ion-icon>
+          <img [src]="imgDecomiso2.url" (click)="takeDecomiso2()" class="img">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
 </ion-content>
+<ion-footer>
+  <ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-label class="titulo">Firma del propietario</ion-label>
+      <canvas #myCanvas (touchstart)="startDrawing($event)" (touchmove)="handleMove($event)">
+      </canvas>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <button ion-button color="secondary">LIMPIAR FIRMA</button>
+    </ion-col>
+  </ion-row>
+  </ion-grid>  
+</ion-footer>

@@ -1,7 +1,34 @@
 page-home {
     canvas{        
         width: 100%;
-        border: solid 1px black;
+        border: solid 2px #000000;
         display: block;
+    }
+    ion-icon{
+        padding-right: 10px;
+    }
+    .nro_decomiso{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .block{
+        position: relative;
+        .deleteicon{
+            position: absolute;
+            color: rgb(255, 136, 0);
+            font-size: 25px;
+            margin: 10px 10px 0 0;
+        }
+    }
+    .img{
+        width: 100%;
+        height: 350px;
+    }
+    .titulo{
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .hidden{
+        display: none;
     }
 }
