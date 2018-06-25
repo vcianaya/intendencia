@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>FORMULARIO DE DECOMISO</ion-title>
+    <ion-title>INTENDENCIA MUNICIPAL DE EL ALTO</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
             <ion-icon name="clipboard"></ion-icon>
               NRO. DE FORMULARIO
           </ion-label>
-          <ion-input type="number" class="nro_decomiso"></ion-input>
+          <ion-input type="number" class="nro_decomiso" [(ngModel)]="nro_formulario"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col col-4>
@@ -22,7 +22,7 @@
             <ion-icon name="clipboard"></ion-icon>
             NRO. DE DECOMISO
           </ion-label>
-          <ion-input type="number" class="nro_decomiso"></ion-input>
+          <ion-input type="number" class="nro_decomiso" [(ngModel)]="nro_decomiso"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col col-4>
@@ -31,10 +31,32 @@
             <ion-icon name="clipboard"></ion-icon>
             NRO. DE ACTA
           </ion-label>
-          <ion-input type="number" class="nro_decomiso"></ion-input>
+          <ion-input type="number" class="nro_decomiso" [(ngModel)]="nro_acta"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>
+            <ion-icon name="person"></ion-icon>
+            Propietario
+          </ion-label>
+          <ion-input type="text" class="nro_decomiso" [(ngModel)]="propietario"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label stacked>
+            <ion-icon name="clipboard"></ion-icon>
+            Observaciones
+          </ion-label>
+          <ion-textarea class="text-area" autocomplete="on" autocorrect="on" [(ngModel)]="observaciones"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>    
     <ion-row>
       <ion-col col-6>
         <ion-label class="titulo">Formulario de decomiso</ion-label>
@@ -68,22 +90,18 @@
         </ion-card>
       </ion-col>
     </ion-row>
-    
+    <ion-row>
+      <ion-col>
+        <ion-label class="titulo">Firma del propietario</ion-label>
+        <canvas #myCanvas (touchstart)="startDrawing($event)" (touchmove)="handleMove($event)">
+        </canvas>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button color="secondary" (click)="limpiarFirma()">LIMPIAR FIRMA</button>
+        <button ion-button color="primary" (click)="saveOperativo()" [disabled]="!validate || (lat>0)">REGISTRAR OPERATIVO</button>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
-<ion-footer>
-  <ion-grid>
-  <ion-row>
-    <ion-col>
-      <ion-label class="titulo">Firma del propietario</ion-label>
-      <canvas #myCanvas (touchstart)="startDrawing($event)" (touchmove)="handleMove($event)">
-      </canvas>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <button ion-button color="secondary">LIMPIAR FIRMA</button>
-    </ion-col>
-  </ion-row>
-  </ion-grid>  
-</ion-footer>

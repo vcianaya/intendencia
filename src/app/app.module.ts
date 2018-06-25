@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
@@ -12,6 +13,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 //NATIVE MODULES
 import { Camera } from "@ionic-native/camera";
+import { SQLite } from '@ionic-native/sqlite';
+import { IonicStorageModule } from "@ionic/storage";
+import { Geolocation } from "@ionic-native/geolocation";
+import { LocationAccuracy } from "@ionic-native/location-accuracy";
 @NgModule({
   declarations: [
     MyApp,
@@ -22,6 +27,8 @@ import { Camera } from "@ionic-native/camera";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -36,6 +43,9 @@ import { Camera } from "@ionic-native/camera";
     StatusBar,
     SplashScreen,
     Camera,
+    SQLite,
+    Geolocation,
+    LocationAccuracy,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
